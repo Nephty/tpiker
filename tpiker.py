@@ -11,7 +11,8 @@ def read_config():
                 key, value = line.split('=')
                 config[key] = value
             except:
-                print(f"Warning : tpicker.conf contains an unknown statement : {line}")
+                if not line.startswith("#"):
+                    print(f"Warning : tpicker.conf contains an unknown statement : {line}")
     return config
 
 
@@ -40,7 +41,7 @@ class InvalidThemeException(Exception):
 
 """
 Represents a configuration of the rice. Links the location of a configuration file to the location of the variants
-of this file defined by each theme. Call the apply function to copy the configuration file of the current theme
+of this file defined by each theme. Call the apply function to copy the configuration file of the target theme
 to the live location.
 """
 class Config:
@@ -61,7 +62,7 @@ class Config:
 
     def apply(self, theme):
         """
-        Copy the content of the config directory of the current theme to the live config directory.
+        Copy the content of the config directory of the target theme to the live config directory.
         Creates a backup of the current config directory in /tmp/tpiker_backups/.
         """
         if theme not in THEMES:
@@ -85,6 +86,6 @@ THEMES = os.listdir(THEMES_DIRECTORY)
 if len(THEMES) == 0:
     print(f"No themes defined. Current themes location : {THEMES_DIRECTORY}.")
     exit()
-CURRENT_THEME = CONFIG['current_theme']
+TARGET_THEME = CONFIG['target_theme']
 
 KITTY_CONFIG = Config('/home/nephty/.config/kitty', 'kitty')
