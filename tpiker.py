@@ -11,13 +11,13 @@ def read_config():
                 key, value = line.split('=')
                 config[key] = value
             except:
-                pass
+                print(f"Warning : tpicker.conf contains an unknown statement : {line}")
     return config
 
 
 def remove_existing_tree_and_copy(source, destination):
     if os.path.exists(destination):  # Remove the currently existing backup directory so that copytree
-        shutil.rmtree(destination)  # doesn't throw a FileExistsError.
+        shutil.rmtree(destination)   # doesn't throw a FileExistsError.
     shutil.copytree(source, destination)
 
 
