@@ -1,7 +1,5 @@
 # tpiker
 
-***
-
 ## Description
 
 tpiker is a Python theme picker tool.
@@ -75,3 +73,9 @@ KITTY_CONFIG.apply('viking')
 4. Run the tpiker.py file with your modifications : `python tpiker.py` (see Usage)
 
 The current usage is not optimal and will be modified later in order to use a configuration file to define the `Config` objects.
+
+## Backups
+
+Remember that it is always good practice to have backups of your system. Tpiker cannot be held responsible for any file loss.
+
+In any case, there is a small backup system that will copy the current configuration to `/tmp/tpiker_backups/path/to/your/files` before overwriting the live configuration. This small save procedure is used at each call to the `apply` method.
