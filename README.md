@@ -46,7 +46,6 @@ If you want to apply your `viking` theme, specify it in your configuration file 
 ```
 # Note the trailing slash :
 themes_directory=/path/to/your/themes/
-target_theme=viking
 ```
 
 Then, create a `Config` object in `tpiker.py` :
@@ -63,13 +62,19 @@ Finally, to apply one of your themes to Kitty, call the `apply` method on your `
 KITTY_CONFIG.apply('viking')
 ```
 
+You can also use the target theme of the configuration file :
+
+```
+KITTY_CONFIG.apply(TARGET_THEME) # TARGET_THEME is already defined from the configuration file
+```
+
 ## Installation and set up
 
 1. Clone the repository : `git clone git@github.com:Nephty/tpiker.git`
 2. Create a directory that will contain your themes
 3. Set up your configuration in `tpicker.conf` :
    - Set the themes directory location : `themes_directory=/path/to/your/themes/` (note the trailing slash)
-   - Set the target theme : `target_theme=your_desired_theme`
+   - Set a target theme : `target_theme=your_desired_theme`
 4. Run the tpiker.py file with your modifications : `python tpiker.py` (see Usage)
 
 The current usage is not optimal and will be modified later in order to use a configuration file to define the `Config` objects.

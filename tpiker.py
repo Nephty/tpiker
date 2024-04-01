@@ -88,4 +88,6 @@ if len(THEMES) == 0:
     exit()
 TARGET_THEME = CONFIG['target_theme']
 
-KITTY_CONFIG = Config('/home/nephty/.config/kitty', 'kitty')
+# EXAMPLE :
+# KITTY_CONFIG = Config('/home/username/.config/kitty', 'kitty')
+# KITTY_CONFIG.apply(TARGET_THEME) # you could also use KITTY_CONFIG.apply('viking')
